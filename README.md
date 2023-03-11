@@ -34,9 +34,7 @@ https://pdos.csail.mit.edu/6.S081/2021/tools.html
 
   其中两个进程输出撞在一起的现象影响比较大，可以使用刚用到的sleep调用，确保两个进程错开执行。
 
-  ![Screenshot 2023-03-11 at 11.05.56](/Users/jingouyang/Desktop/Screenshot 2023-03-11 at 11.05.56.png)
-
-  
+  ![lab1](images/lab1.png)
 
   如果需要完全避免这样的现象也很简单，在输出之前使用父和子进程使用两个时间不同的sleep即可。
 
