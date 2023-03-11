@@ -4,10 +4,12 @@
 
 char buf[512];
 
-int main(int argc,char *argv[]){
+void main(int argc,char *argv[]){
     if(argc != 2){
         fprintf(2,"Usage: sleep ticks...\n");
+	exit(1);
     }
-    int clock = atoi(argv[2]);
+    int clock = atoi(argv[1]);
     sleep(clock);
+    exit(0);
 }
