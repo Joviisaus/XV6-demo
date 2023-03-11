@@ -131,9 +131,9 @@ UPROGS=\
 	$U/_usertests\
 	$U/_grind\
 	$U/_wc\
-	$U/_zombie\
-	$u/_sleep\
-	$u/_pingpong\
+	$U/_zombiU\
+	$U/_sleep\
+	$U/_pingpong\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

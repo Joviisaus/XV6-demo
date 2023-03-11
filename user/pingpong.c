@@ -23,12 +23,13 @@ void main(int argc,char* argv[])
         write(p[1],"pong",5);
         read(p[0],msg,15);
         printf("%d:received %s \n",getpid(),msg);
-        exit(1)
+        exit(1);
     }
     else if (pid == 0)
     {
         write(p[1],"ping",5);
         read(p[0],msg,15);
+        sleep(10);
         printf("%d:received %s \n",getpid(),msg);
         exit(1);
     }
