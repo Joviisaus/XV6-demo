@@ -36,8 +36,6 @@ https://pdos.csail.mit.edu/6.S081/2021/tools.html
 
   ![lab1](images/lab1.png)
 
-  如果需要完全避免这样的现象也很简单，在输出之前使用父和子进程使用两个时间不同的sleep即可。
-
   
 
   
