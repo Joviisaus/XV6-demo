@@ -5,7 +5,7 @@
 int prime(int num)
 {
     int i;
-    for(i = 2;i<num/2;i++)
+    for(i = 2;i<num;i++)
     {
         if(num %i == 0) break;
     }
@@ -26,7 +26,7 @@ void main(int args, char* argv[])
 
     for(int i = 2;i <= 35;i ++)
     {
-        write(p[1],i,sizeof(i));
+        write(p[1],&i,sizeof(i));
     }
 
     pid = fork();
@@ -37,29 +37,31 @@ void main(int args, char* argv[])
         {
             wait((int*)0);
             break;
-        }else if (pid == 0)
+        }
+        else if (pid == 0)
         {
             while(1)
             {
-                if(read(p[0],num,sizeof(num)))
+                if(read(p[0],&num,sizeof(num))==0)
                 {
                     num = -1;
                     break;
                 }
-                if(prime(num))
+                if(prime(num)==1)
                 {
                     fprintf(1,"prime %d \n",num);
-                }else if (num < 0)
-                {
+                    pid = fork();
                     break;
                 }
                 
             }
-        }else{
+            
+        }
+        else{
             fprintf(2,"error:fork failed \n"); 
             break;
         }
-        
+        if (num < 0) break;
     }
     exit(0);
     
