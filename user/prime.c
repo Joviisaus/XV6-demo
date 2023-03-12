@@ -5,7 +5,9 @@
 int prime(int num)
 {
     int i;
-    for(i = 3;i<num;i++)
+    if(num == 2) return 1;
+    if(num == 3) return 1;
+    for(i = 2;i<num;i++)
     {
         if(num %i == 0) break;
     }
@@ -18,7 +20,7 @@ void main(int args, char* argv[])
     int p[2];
     int num;
     int pid;
-    
+
     if(pipe(p)<0)
     {
         fprintf(2,"error:unable to build pipes \n");
@@ -36,16 +38,16 @@ void main(int args, char* argv[])
         if(pid > 0)
         {
             wait((int*)0);
-            exit(1);
+            exit(0);
         }
         else if (pid == 0)
         {
             while(1)
             {
-                if(read(p[0],&num,sizeof(num))==0)
+                read(p[0],&num,sizeof(num));
+                if(num == 35)
                 {
-                    num = -1;
-                    break;
+                   exit(0);
                 }
                 if(prime(num)==1)
                 {
@@ -53,16 +55,15 @@ void main(int args, char* argv[])
                     pid = fork();
                     break;
                 }
-                
             }
-            
+
+
         }
         else{
-            fprintf(2,"error:fork failed \n"); 
-            break;
+            fprintf(2,"error:fork failed \n");
+            exit(1);
         }
-        if (num < 0) break;
     }
     exit(0);
-    
+
 }
