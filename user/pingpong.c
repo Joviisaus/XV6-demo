@@ -5,12 +5,8 @@
 
 void main(int argc,char* argv[])
 {
-    char* msg;
-
-    if(argc < 2){
-    fprintf(2, "Usage: pingpong files...\n");
-    exit(1);}
-
+    char* msg[10];
+ 
     int p[2];
     int pid = fork();
 
