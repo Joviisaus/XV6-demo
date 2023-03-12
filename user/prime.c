@@ -2,14 +2,15 @@
 #include "kernel/stat.h"
 #include "user/user.h"
 
-bool prime(int num)
+int prime(int num)
 {
-    for(int i = 2;i<num/2;i++)
+    int i;
+    for(i = 2;i<num/2;i++)
     {
         if(num %i == 0) break;
     }
-    if(i == num) return(FALSE);
-    return(TRUE);
+    if(i == num) return(0);
+    return(1);
 }
 
 void main(int args, char* argv[])
@@ -25,7 +26,7 @@ void main(int args, char* argv[])
 
     for(int i = 2;i <= 35;i ++)
     {
-        write(buf[1],i,sizeof(i));
+        write(p[1],i,sizeof(i));
     }
 
     pid = fork();
@@ -40,7 +41,7 @@ void main(int args, char* argv[])
         {
             while(1)
             {
-                if(read(buf[0],num,sizeof(num)))
+                if(read(p[0],num,sizeof(num)))
                 {
                     num = -1;
                     break;
