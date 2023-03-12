@@ -10,20 +10,21 @@ void main(int args,char *argv[])
     {
         fprintf(2,"error:unable to build pipes \n");
     }
-    int num = 35
+    int num = 35;
     int pid = fork();
+    
 
     while (1)
     {
         if(pid > 0)
         {
-            write(p[1],num - 1);
+            write(p[1],&num,sizeof(num));
             wait((int*)0);
             printf("prime %d \n",num);
             break;
         }else if (pid == 0)
         {
-            read(p[0],num);
+            read(p[0],&num,sizeof(num));
             if(num >= 2)
             {
                 num --;
