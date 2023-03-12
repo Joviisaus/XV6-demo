@@ -5,12 +5,12 @@
 int prime(int num)
 {
     int i;
-    for(i = 2;i<num;i++)
+    for(i = 3;i<num;i++)
     {
         if(num %i == 0) break;
     }
-    if(i == num) return(0);
-    return(1);
+    if(i == num) return(1);
+    return(0);
 }
 
 void main(int args, char* argv[])
@@ -36,7 +36,7 @@ void main(int args, char* argv[])
         if(pid > 0)
         {
             wait((int*)0);
-            break;
+            exit(1);
         }
         else if (pid == 0)
         {
