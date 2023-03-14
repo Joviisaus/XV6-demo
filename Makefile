@@ -136,6 +136,7 @@ UPROGS=\
 	$U/_pingpong\
 	$U/_primes\
 	$U/_prime\
+	$U/_find\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

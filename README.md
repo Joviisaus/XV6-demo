@@ -46,6 +46,8 @@ https://pdos.csail.mit.edu/6.S081/2021/tools.html
 
 - find
 
+  逻辑很复杂，首先要求看懂ls这个系统调用，给出的难度是moderate可能主要是因为它和ls在代码逻辑是很像，然后利用好strcmp方法判断文件是否匹配从而决定是否输出。
+
 - xargs
 
   
