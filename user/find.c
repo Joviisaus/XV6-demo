@@ -44,12 +44,12 @@ find(char *path,char *name)
   switch(st.type){
   case T_DEVICE:
   case T_FILE:
-    if(!strcmp(fmtname(path),name)) printf("%s %d %d %l\n", fmtname(path), st.type, st.ino, st.size);
+    if(strcmp(fmtname(path),name)==0) printf("%s %d %d %l\n", fmtname(path), st.type, st.ino, st.size);
     break;
 
   case T_DIR:
     if(strlen(path) + 1 + DIRSIZ + 1 > sizeof buf){
-      printf("ls: path too long\n");
+      printf("find: path too long\n");
       break;
     }
     strcpy(buf, path);
@@ -60,8 +60,8 @@ find(char *path,char *name)
         continue;
       memmove(p, de.name, DIRSIZ);
       p[DIRSIZ] = 0;
-      if(!strcmp(de.name,".")||!strcmp(de.name,".."))continue;
-      find(buf,name)
+      if(!strcmp(de.name,".")||!strcmp(de.name,"..")) continue;
+      find(buf,name);
       //printf("%s %d %d %d\n", fmtname(buf), st.type, st.ino, st.size);
     }
     break;
@@ -72,12 +72,10 @@ find(char *path,char *name)
 int
 main(int argc, char *argv[])
 {
-  int i;
-
   if(argc != 3){
     fprintf(2, "usage: find <path> <name>\n");
     exit(1);
   }
-  find(argv[2],argv[3]);
+  find(argv[1],argv[2]);
   exit(0);
 }
