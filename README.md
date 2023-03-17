@@ -50,7 +50,9 @@ https://pdos.csail.mit.edu/6.S081/2021/tools.html
 
 - xargs
 
-  
+  这一部分的实验描述对于不够熟悉UNIX shell的管道命令的同学来说可能不好理解，可以参考一下这篇文章：http://www.ruanyifeng.com/blog/2019/08/xargs-tutorial.html
 
+  
+  
   
 
