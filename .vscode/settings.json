@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "types.h": "c"
+        "types.h": "c",
+        "__config": "c",
+        "locale": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
