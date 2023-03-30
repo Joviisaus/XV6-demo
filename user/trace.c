@@ -1,3 +1,10 @@
+#include "kernel/types.h"
+#include "kernel/stat.h"
+#include "user/user.h"
+
+#define MAXARG 64
+
+
 int
 main(int argc, char *argv[])
 {
